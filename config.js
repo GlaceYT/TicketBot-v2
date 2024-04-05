@@ -15,12 +15,12 @@
 */
 
 module.exports = {
-  TOKEN: "",
-  ownerID: ["1004206704994566164", ""], 
+  TOKEN: "MTIyNTUyOTkzMDI2NDM1MDc5Mg.GElW8I.otaqJocS-9OvtBoaj7fNR1mItmeYrDhISMb4iE",
+  ownerID: ["847114060776210432", ""], 
   setupFilePath: './commands/setup.json',
   commandsDir: './commands',  
   embedColor: "00fbff",
-  errorLog: "", 
+  errorLog: "1225531289860571289", 
 
 }
 /*
