@@ -30,7 +30,7 @@
   "scripts": {
     "start": "node index.js"
   },
-  "author": "RTX GAMING",
+  "author": "GlaceYT",
   "license": "XX",
   "engines": {
     "node": "18.x"
