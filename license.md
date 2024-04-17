@@ -1,19 +1,6 @@
-/** ██████╗░████████╗██╗░░██╗
-██╔══██╗╚══██╔══╝╚██╗██╔╝
-██████╔╝░░░██║░░░░╚███╔╝░
-██╔══██╗░░░██║░░░░██╔██╗░
-██║░░██║░░░██║░░░██╔╝╚██╗
-╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝
-
-DISCORD SERVER : https://discord.gg/FUEHs7RCqz YOUTUBE : https://www.youtube.com/channel/UCPbAvYWBgnYhliJa1BIrv0A
-
-Code by RTX GAMING
-*/
 
 code License Agreement
-Effective Date: 19/10/2023
-
-Between: [RTX GAMING]
+Between: [GlaceYT]
 
 And: End-User ("Licensee")
 
@@ -42,14 +29,3 @@ If you have any questions or need to contact Licensor, please reach out to [RTX#
 
 By using the code, Licensee agrees to the terms of this License Agreement.
 
-/** ██████╗░████████╗██╗░░██╗
-██╔══██╗╚══██╔══╝╚██╗██╔╝
-██████╔╝░░░██║░░░░╚███╔╝░
-██╔══██╗░░░██║░░░░██╔██╗░
-██║░░██║░░░██║░░░██╔╝╚██╗
-╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝
-
-DISCORD SERVER : https://discord.gg/FUEHs7RCqz YOUTUBE : https://www.youtube.com/channel/UCPbAvYWBgnYhliJa1BIrv0A
-
-Code by RTX GAMING
-*/
