@@ -25,7 +25,7 @@ Contact me on Discord for any queries or contributions.
 
 ## Copyright
 
-All code in this project is authored by RTX. Please do not use this code for any public usage, such as creating YouTube videos, Git repositories, etc., without my explicit permission.
+All code in this project is authored by GlaceYT. Please do not use this code for any public usage, such as creating YouTube videos, Git repositories, etc., without my explicit permission.
 
 ## Contact
 
