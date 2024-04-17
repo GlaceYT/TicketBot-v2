@@ -1,6 +1,6 @@
 const status = "AUTOMATIC";
 const botName = "🎟️ TICKET BOT";
-const rtxText = "RTX GAMING";
+const Text = "GlaceYT";
 const version = "Latest@ v1.0"; 
 const startTime = Date.now();
 
@@ -13,7 +13,7 @@ function printWatermark() {
   console.log(`\x1b[1m\x1b[36m            👑 Authorization : ${status}    `);
   console.log(`\x1b[1m\x1b[36m            💡 Version: ${version}`);
   console.log(`\x1b[1m\x1b[36m            📅 Uptime: ${uptimeInSeconds}s`);
-  console.log(`\x1b[1m\x1b[36m            🚀 Powered by ${rtxText}`);
+  console.log(`\x1b[1m\x1b[36m            🚀 Powered by ${Text}`);
   console.log('\x1b[1m\x1b[36m║                                            ║');
   console.log('\x1b[1m\x1b[36m╚════════════════════════════════════════════╝\x1b[0m');
 }
