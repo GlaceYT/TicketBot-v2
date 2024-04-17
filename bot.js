@@ -8,7 +8,7 @@
   ╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝          
 
    
-   # MADE BY RTX!! FEEL FREE TO USE ANY PART OF CODE
+   # MADE BY Glace!! FEEL FREE TO USE ANY PART OF CODE
    ## FOR HELP CONTACT ME ON DISCORD
    ## Contact    [ DISCORD SERVER :  https://discord.gg/FUEHs7RCqz ]
    ## YT : https://www.youtube.com/channel/UCPbAvYWBgnYhliJa1BIrv0A
@@ -98,7 +98,7 @@ app.get('/', (req, res) => {
   res.sendFile(imagePath);
 });
 app.listen(port, () => {
-  console.log(`🔗 Listening to RTX: http://localhost:${port}`);
+  console.log(`🔗 Listening to Glace: http://localhost:${port}`);
 });
 printWatermark();
 /*
@@ -111,7 +111,7 @@ printWatermark();
   ╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝          
 
    
-   # MADE BY RTX!! FEEL FREE TO USE ANY PART OF CODE
+   # MADE BY Glace!! FEEL FREE TO USE ANY PART OF CODE
    ## FOR HELP CONTACT ME ON DISCORD
    ## Contact    [ DISCORD SERVER :  https://discord.gg/FUEHs7RCqz ]
    ## YT : https://www.youtube.com/channel/UCPbAvYWBgnYhliJa1BIrv0A
