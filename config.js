@@ -23,5 +23,5 @@
 module.exports = {
     token: '',
     guildId: '',
-    mongodbURI: 'mongodb+srv://shiva:shiva@cluster0.7oupm.mongodb.net/?retryWrites=true&w=majority'
+    mongodbURI: ''
 };
