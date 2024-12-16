@@ -1,24 +1,3 @@
-/*
-
-  ________.__                        _____.___.___________
- /  _____/|  | _____    ____  ____   \__  |   |\__    ___/
-/   \  ___|  | \__  \ _/ ___\/ __ \   /   |   |  |    |   
-\    \_\  \  |__/ __ \\  \__\  ___/   \____   |  |    |   
- \______  /____(____  /\___  >___  >  / ______|  |____|   
-        \/          \/     \/    \/   \/                  
-
-╔════════════════════════════════════════════════════════════════════════╗
-║                                                                        ║
-║  ## Created by GlaceYT!                                                ║
-║  ## Feel free to utilize any portion of the code                       ║
-║  ## DISCORD :  https://discord.com/invite/xQF9f9yUEM                   ║
-║  ## YouTube : https://www.youtube.com/@GlaceYt                         ║
-║                                                                        ║
-╚════════════════════════════════════════════════════════════════════════╝
-
-
-*/
-
 
 const { getTicketSetup } = require('../models/ticketSetup');
 const { ActionRowBuilder, ButtonBuilder, EmbedBuilder, ChannelType, ButtonStyle, ModalBuilder, TextInputBuilder, TextInputStyle } = require('discord.js');
@@ -111,68 +90,62 @@ module.exports = async (client) => {
         }
 
       
-        if (interaction.isModalSubmit()) {
-            if (interaction.customId === 'ticket_modal') {
-     
-                const subject = interaction.fields.getTextInputValue('ticket_subject');
-                const description = interaction.fields.getTextInputValue('ticket_description');
+       if (interaction.isModalSubmit()) {
+    if (interaction.customId === 'ticket_modal') {
+        // Defer the reply to ensure we respond in time
+        await interaction.deferReply({ ephemeral: true });
 
-               
-                const setup = await getTicketSetup(interaction.guildId);
-                const existingTicket = interaction.guild.channels.cache.find(c => c.name === `ticket-${interaction.user.username}`);
-                if (existingTicket) {
-                    return await interaction.reply({ content: 'You already have an open ticket! If not please contact staff.', ephemeral: true });
-                }
+        const subject = interaction.fields.getTextInputValue('ticket_subject');
+        const description = interaction.fields.getTextInputValue('ticket_description');
 
-              
-                const ticketChannel = await interaction.guild.channels.create({
-                    name: `ticket-${interaction.user.username}`,
-                    type: ChannelType.GuildText,
-                    permissionOverwrites: [
-                        { id: interaction.guild.id, deny: ['ViewChannel'] },
-                        { id: interaction.user.id, allow: ['ViewChannel', 'SendMessages'] },
-                        ...setup.adminRoleIds.map(roleId => ({
-                            id: roleId, allow: ['ViewChannel', 'SendMessages']
-                        }))
-                    ]
-                });
-
-                
-                    const OpenEmbed = new EmbedBuilder()
-                    .setAuthor({
-                        name: "Ticket Created Sucessfully",
-                        iconURL: Icons.tickIcon,
-                        url: "https://discord.gg/xQF9f9yUEM"
-                    })
-                    .setDescription(`Your ticket channel : ${ticketChannel.url}`)
-                    .setFooter({ text: 'Ticket Bot V2!', iconURL: Icons.modIcon })
-                    .setColor('#00FF00'); 
-
-               
-                await interaction.user.send({ embeds: [OpenEmbed] });
-
-
-                
-                const embed = new EmbedBuilder()
-                    .setTitle(`Sub: ${subject}`)
-                    .setDescription(description)
-                    .setColor('#FFFF00')
-                    .setFooter({ text: `Created by ${interaction.user.username}` });
-
-                const row = new ActionRowBuilder()
-                    .addComponents(
-                        new ButtonBuilder().setCustomId('close_ticket').setLabel('Close Ticket').setStyle(ButtonStyle.Danger),
-                        new ButtonBuilder().setCustomId('ping_admin').setLabel('Ping Admin').setStyle(ButtonStyle.Secondary),
-                        new ButtonBuilder().setCustomId('ticket_info').setLabel('Ticket Info').setStyle(ButtonStyle.Primary)
-                    );
-
-               
-                await ticketChannel.send({ content: `<@${interaction.user.id}>`, embeds: [embed], components: [row] });
-
-                
-                await interaction.reply({ content: 'Your ticket has been created!', ephemeral: true });
-            }
+        const setup = await getTicketSetup(interaction.guildId);
+        const existingTicket = interaction.guild.channels.cache.find(c => c.name === `ticket-${interaction.user.username}`);
+        if (existingTicket) {
+            return await interaction.editReply({ content: 'You already have an open ticket! If not, please contact staff.' });
         }
+
+        const ticketChannel = await interaction.guild.channels.create({
+            name: `ticket-${interaction.user.username}`,
+            type: ChannelType.GuildText,
+            permissionOverwrites: [
+                { id: interaction.guild.id, deny: ['ViewChannel'] },
+                { id: interaction.user.id, allow: ['ViewChannel', 'SendMessages'] },
+                ...setup.adminRoleIds.map(roleId => ({
+                    id: roleId, allow: ['ViewChannel', 'SendMessages']
+                }))
+            ]
+        });
+
+        const openEmbed = new EmbedBuilder()
+            .setAuthor({
+                name: "Ticket Created Successfully",
+                iconURL: Icons.tickIcon,
+                url: "https://discord.gg/xQF9f9yUEM"
+            })
+            .setDescription(`Your ticket channel: ${ticketChannel.url}`)
+            .setFooter({ text: 'Ticket Bot V2!', iconURL: Icons.modIcon })
+            .setColor('#00FF00');
+
+        await interaction.user.send({ embeds: [openEmbed] });
+
+        const embed = new EmbedBuilder()
+            .setTitle(`Sub: ${subject}`)
+            .setDescription(description)
+            .setColor('#FFFF00')
+            .setFooter({ text: `Created by ${interaction.user.username}` });
+
+        const row = new ActionRowBuilder()
+            .addComponents(
+                new ButtonBuilder().setCustomId('close_ticket').setLabel('Close Ticket').setStyle(ButtonStyle.Danger),
+                new ButtonBuilder().setCustomId('ping_admin').setLabel('Ping Admin').setStyle(ButtonStyle.Secondary),
+                new ButtonBuilder().setCustomId('ticket_info').setLabel('Ticket Info').setStyle(ButtonStyle.Primary)
+            );
+
+        await ticketChannel.send({ content: `<@${interaction.user.id}>`, embeds: [embed], components: [row] });
+
+        await interaction.editReply({ content: 'Your ticket has been created!' });
+    }
+}
 
         if (interaction.isButton()) {
             if (interaction.customId === 'close_ticket') {
